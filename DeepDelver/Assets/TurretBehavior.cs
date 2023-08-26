@@ -36,12 +36,11 @@ public class TurretBehavior : EnemyBehavior
             }
             shootTimer -= Time.deltaTime;
         }
-        
     }
 
     void Shoot()
     {
-        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation, firePoint);
+        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         BulletAttributes attributes = bullet.GetComponent<BulletAttributes>();
         attributes.SetAfil(0);
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();

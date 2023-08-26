@@ -31,6 +31,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4042785374754882041}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5686240188697284338
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7325925918867364926}
+  m_Layer: 0
+  m_Name: FirePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7325925918867364926
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5686240188697284338}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4042785374754882041}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7593897556111463708
 GameObject:
   m_ObjectHideFlags: 0
@@ -44,10 +75,9 @@ GameObject:
   - component: {fileID: 1363585680470974301}
   - component: {fileID: 2632092258586001286}
   - component: {fileID: 1630550968906354938}
-  - component: {fileID: 5337562310320994701}
-  - component: {fileID: -2931784854133832173}
+  - component: {fileID: 6194498535910484670}
   m_Layer: 0
-  m_Name: Cloaker
+  m_Name: Dragon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -62,11 +92,12 @@ Transform:
   m_GameObject: {fileID: 7593897556111463708}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.08, y: -0.2, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6860759909263348441}
+  - {fileID: 7325925918867364926}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &826543065847537420
@@ -111,7 +142,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 2747690628134850419, guid: 16037dbd798344f57a526d53d48f5ead, type: 3}
-  m_Color: {r: 0, g: 1, b: 0.0838747, a: 1}
+  m_Color: {r: 1, g: 0.37358493, b: 0.37358493, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -195,9 +226,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd107ef7fd5b1a5458e7e7fe0a6f4e32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 1
+  health: 5
   afil: 0
---- !u!114 &5337562310320994701
+--- !u!114 &6194498535910484670
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -206,19 +237,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7593897556111463708}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84d06b8fc24ef8c42a77781482ca49a3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &-2931784854133832173
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7593897556111463708}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 007fbf4e69dfa5d47a46c332afccbfc9, type: 3}
+  m_Script: {fileID: 11500000, guid: 39194f512c9018944955c0f96e007dbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 2632092258586001286}
+  bulletPrefab: {fileID: 7480999889972926997, guid: 694aac99144187449aacdd6a83643453, type: 3}
+  firePoint: {fileID: 7325925918867364926}
+  moveTimer: 0.2
+  shootTimer: 0

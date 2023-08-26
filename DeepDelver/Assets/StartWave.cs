@@ -7,7 +7,7 @@ public class StartWave : Spawner
     public GameObject object1;
     public GameObject nextWave;
     float clock = 0f;
-    float totalDuration = 0f;
+    float totalDuration = 30f;
     float spawnInterval1 = 5f;
     
     // Update is called once per frame
@@ -46,7 +46,7 @@ public class StartWave : Spawner
             HealthManager health = target.GetComponent<HealthManager>();
             if (IsPlayerDead())
             {
-                totalDuration = 60f;
+                clock = 0f;
                 spawnInterval1 = 5f;
             }
             if (clock >= totalDuration)

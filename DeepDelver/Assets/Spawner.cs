@@ -40,21 +40,22 @@ public class Spawner : MonoBehaviour
         int side = Mathf.RoundToInt(Random.Range(0f, 3f));
         if (side == 0)
         {
-            rawLoc = new Vector3(0, Random.Range(0, height), 0);
+            rawLoc = new Vector3(0, Random.Range(0, 1f), screen.nearClipPlane);
         }
         if (side == 1)
         {
-            rawLoc = new Vector3(Random.Range(0, width), height, 0);
+            rawLoc = new Vector3(Random.Range(0, 1f), 1, screen.nearClipPlane);
         }
         if (side == 2)
         {
-            rawLoc = new Vector3(width, Random.Range(0, height), 0);
+            rawLoc = new Vector3(1, Random.Range(0, 1f), screen.nearClipPlane);
         }
         else
         {
-            rawLoc = new Vector3(Random.Range(0, width), 0, 0);
+            rawLoc = new Vector3(Random.Range(0, 1f), 0, screen.nearClipPlane);
         }
-        return screen.ScreenToWorldPoint(rawLoc) + new Vector3(0, 0, 10);
+        
+        return screen.ViewportToWorldPoint(rawLoc) + new Vector3(0, 0, 10f);
     }
 
     protected void Descend()
@@ -64,10 +65,9 @@ public class Spawner : MonoBehaviour
 
     protected void RestartWave()
     {
-        while (transform.childCount > 0)
-        {
-            DestroyImmediate(transform.GetChild(0).gameObject);
-            waveStarted = false;
+        Debug.Log(transform.childCount);
+        for(int i = transform.childCount - 1; i >= 0; i--){
+            Destroy(transform.GetChild(i).gameObject);
         }
     }
 

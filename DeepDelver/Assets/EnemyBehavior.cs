@@ -16,8 +16,4 @@ public class EnemyBehavior : MonoBehaviour
         }
 
     }
-    protected void clearEnemies()
-    {
-        Destroy(this);
-    } 
 }

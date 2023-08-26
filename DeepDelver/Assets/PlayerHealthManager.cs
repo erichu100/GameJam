@@ -8,7 +8,7 @@ public class PlayerHealthManager : HealthManager
     {
 
         transform.position = Vector3.zero;
-        SetHealth(3);
+        //SetHealth(3);
         //
         //EventManager.TriggerEvent("Player_Death");
 

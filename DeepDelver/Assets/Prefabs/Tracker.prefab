@@ -45,9 +45,9 @@ GameObject:
   - component: {fileID: 2632092258586001286}
   - component: {fileID: 1630550968906354938}
   - component: {fileID: 5337562310320994701}
-  - component: {fileID: -2931784854133832173}
+  - component: {fileID: -6982588319267764029}
   m_Layer: 0
-  m_Name: Cloaker
+  m_Name: Tracker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -111,7 +111,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 2747690628134850419, guid: 16037dbd798344f57a526d53d48f5ead, type: 3}
-  m_Color: {r: 0, g: 1, b: 0.0838747, a: 1}
+  m_Color: {r: 0.97858477, g: 0, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -209,7 +209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84d06b8fc24ef8c42a77781482ca49a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-2931784854133832173
+--- !u!114 &-6982588319267764029
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -218,7 +218,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 7593897556111463708}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 007fbf4e69dfa5d47a46c332afccbfc9, type: 3}
+  m_Script: {fileID: 11500000, guid: c739c15dc7e88ba408a51e00593f2891, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 2632092258586001286}
