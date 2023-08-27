@@ -5,49 +5,32 @@ using UnityEngine;
 public class StartWave : Spawner
 {
     public GameObject object1;
-    public GameObject nextWave;
+    //public GameObject nextWave;
     float clock = 0f;
     float totalDuration = 30f;
-    float spawnInterval1 = 5f;
+    float baseSpawnInterval1 = 2.8f;
+    float spawnInterval1 = 2.8f;
     
     // Update is called once per frame
     void Update()
     {
-        if (waveFinished)
-        {
-            rb.velocity = transform.up * 5f;
-            if (offScreen)
-            {
-                Instantiate(nextWave, spawnPoint, Quaternion.identity);
-                Destroy(gameObject);
-            }
-        }
-        if (playerNear && !preWave)
-        {
-            if (Input.GetKey(KeyCode.K)) {
-                waveStarted = true;
-            }
-        }
-        else if (preWave)
-        {
-            CheckTowardsCenter();
-        }
+        PreWaveLoop();
+        CheckNextWave();
         if (waveStarted)
         {
             clock += Time.deltaTime;
             //Debug.Log(clock);
             if (clock >= spawnInterval1 && !waveFinished)
             {
-                Vector3 loc = randomBorder();
-                Instantiate(object1, loc, Quaternion.identity, transform);
-                spawnInterval1 += spawnInterval1;
+                SpawnObject(object1);
+                spawnInterval1 += baseSpawnInterval1;
             }
 
             HealthManager health = target.GetComponent<HealthManager>();
             if (IsPlayerDead())
             {
                 clock = 0f;
-                spawnInterval1 = 5f;
+                spawnInterval1 = baseSpawnInterval1;
             }
             if (clock >= totalDuration)
             {

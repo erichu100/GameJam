@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class CloakerBehavior : EnemyBehavior
 {
-    private float speed = 5f;
-    public Rigidbody2D rb;
+
+    private float speed = 10f;
+    public float shootTimer = 0.5f;
 
     // Start is called before the first frame update
     void Start()
@@ -17,6 +18,14 @@ public class CloakerBehavior : EnemyBehavior
     void Update()
     {
         facePlayer();
-        rb.velocity = transform.up * speed;  
+        approachPlayer(speed);
+        if (shootTimer <= 0)
+        {
+            Shoot(bulletPrefab, firePoint, -15);
+            Shoot(bulletPrefab, firePoint, 0);
+            Shoot(bulletPrefab, firePoint, 15);
+            shootTimer = 1f;
+        }
+        shootTimer -= Time.deltaTime;
     }
 }

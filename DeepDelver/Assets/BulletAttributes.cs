@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BulletAttributes : MonoBehaviour
 {
-    private float timer = 0;
+    //private float timer = 0;
     public float speed = 7f;
     public Rigidbody2D rb;
     //1 for player, 0 for enemy, 2 for neutral
@@ -24,6 +24,10 @@ public class BulletAttributes : MonoBehaviour
     public void SetSpeed(float input)
     {
         speed = input;
+    }
+    public void ChangeAngle(float change)
+    {
+        transform.Rotate(0, 0, change);
     }
     void OnTriggerEnter2D (Collider2D other)
     {

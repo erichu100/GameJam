@@ -75,7 +75,6 @@ GameObject:
   - component: {fileID: 1363585680470974301}
   - component: {fileID: 2632092258586001286}
   - component: {fileID: 1630550968906354938}
-  - component: {fileID: 6194498535910484670}
   m_Layer: 0
   m_Name: Dragon
   m_TagString: Untagged
@@ -228,20 +227,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 5
   afil: 0
---- !u!114 &6194498535910484670
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7593897556111463708}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39194f512c9018944955c0f96e007dbe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 2632092258586001286}
-  bulletPrefab: {fileID: 7480999889972926997, guid: 694aac99144187449aacdd6a83643453, type: 3}
-  firePoint: {fileID: 7325925918867364926}
-  moveTimer: 0.2
-  shootTimer: 0

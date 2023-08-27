@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class TrackerBehavior : EnemyBehavior
 {
-    public Rigidbody2D rb;
-    public GameObject bulletPrefab;
     private float speed = 8f;
+    public float shootTimer = 0.5f;
 
     // Start is called before the first frame update
     void Start()
@@ -18,7 +17,12 @@ public class TrackerBehavior : EnemyBehavior
     void Update()
     {
         facePlayer();
-        rb.velocity = transform.up * speed;
-
+        approachPlayer(speed);
+        if (shootTimer <= 0)
+        {
+            Shoot(bulletPrefab, firePoint);
+            shootTimer = 1f;
+        }
+        shootTimer -= Time.deltaTime;
     }
 }

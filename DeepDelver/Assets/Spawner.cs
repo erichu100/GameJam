@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
+    public GameObject nextWave;
     private Vector3 rawLoc;
     protected GameObject target;
     private Camera screen;
     private int width;
     private int height;
-    protected Vector3 center = new Vector3(0, 0, 0);
+    private float timer = 0f;
+    protected Vector3 center = new Vector3(0, 0, 0.1f);
     protected Vector3 spawnPoint;
     protected Rigidbody2D rb;
     protected bool preWave = true;
@@ -95,6 +97,12 @@ public class Spawner : MonoBehaviour
         offScreen = true;
     }
 
+    protected void SpawnObject(GameObject obj)
+    {
+        Vector3 loc = randomBorder();
+        Instantiate(obj, loc, Quaternion.identity, transform);
+    }
+
     protected bool IsPlayerDead()
     {
         HealthManager health = target.GetComponent<HealthManager>();
@@ -122,6 +130,39 @@ public class Spawner : MonoBehaviour
             if(transform.position == center)
             {
                 preWave = false;
+            }
+        }
+    }
+
+    protected void PreWaveLoop()
+    {
+        if (playerNear && !preWave)
+        {
+            if (Input.GetKey(KeyCode.K))
+            {
+                waveStarted = true;
+            }
+        }
+        else if (preWave)
+        {
+            CheckTowardsCenter();
+        }
+    }
+
+    protected void CheckNextWave()
+    {
+        if (waveFinished)
+        {
+            rb.velocity = transform.up * 5f;
+            if (offScreen)
+            {
+                timer += Time.deltaTime;
+                if(timer > 1f)
+                {
+                    Instantiate(nextWave, spawnPoint, Quaternion.identity);
+                    Destroy(gameObject);
+                }
+
             }
         }
     }

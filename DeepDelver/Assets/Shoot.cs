@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class Shoot : MonoBehaviour
 {
-    private static float fireDelay = 0.5f;
-    private static float timer = fireDelay;
+    private float fireDelay = 0.5f;
+    private float timer = 0.5f;
+    private float secondTimer = 1f;
+    private float secondFireDelay = 1f;
     public GameObject bulletPrefab;
     public Transform firePoint;
 
@@ -21,14 +23,27 @@ public class Shoot : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
+        secondTimer += Time.deltaTime;
         if (Input.GetMouseButton(0) && timer >= fireDelay)
         {
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
             BulletAttributes attributes = bullet.GetComponent<BulletAttributes>();
             attributes.SetAfil(1);
-            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-            Destroy(bullet, 5);
+            Destroy(bullet, 3);
+            timer = 0f;
+        }
+        if (Input.GetMouseButton(1) && timer >= secondFireDelay)
+        {
+            for(int i = -1; i < 2; i++)
+            {
+                GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+                BulletAttributes attributes = bullet.GetComponent<BulletAttributes>();
+                attributes.ChangeAngle(-5f * i);
+                attributes.SetAfil(1);
+                Destroy(bullet, 3);
+            }
             timer = 0f;
         }
     }
+
 }
