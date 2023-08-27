@@ -16,4 +16,12 @@ public class EnemyBehavior : MonoBehaviour
         }
 
     }
+    protected void Shoot(GameObject bulletPrefab, Transform firePoint)
+    {
+        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        BulletAttributes attributes = bullet.GetComponent<BulletAttributes>();
+        attributes.SetAfil(0);
+        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+        Destroy(bullet, 5);
+    }
 }

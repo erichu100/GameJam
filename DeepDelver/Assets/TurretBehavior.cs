@@ -31,19 +31,12 @@ public class TurretBehavior : EnemyBehavior
             rb.velocity = Vector3.zero;
             if(shootTimer <= 0)
             {
-                Shoot();
+                Shoot(bulletPrefab, firePoint);
                 shootTimer = 1f;
             }
             shootTimer -= Time.deltaTime;
         }
     }
 
-    void Shoot()
-    {
-        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-        BulletAttributes attributes = bullet.GetComponent<BulletAttributes>();
-        attributes.SetAfil(0);
-        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-        Destroy(bullet, 5);
-    }
+
 }

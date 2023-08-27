@@ -21,6 +21,10 @@ public class BulletAttributes : MonoBehaviour
     {
         afil = input;
     }
+    public void SetSpeed(float input)
+    {
+        speed = input;
+    }
     void OnTriggerEnter2D (Collider2D other)
     {
         HealthManager health = other.GetComponent<HealthManager>();
